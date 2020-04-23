@@ -1,0 +1,459 @@
+
+@import 'constants';
+
+body, button, input, textarea{
+    background:#f8f8f8;
+    font-family: 'Montserrat', sans-serif !important;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: 500;
+}
+
+h4 {margin: 0;}
+
+.active{
+  display: block!important;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    &:hover{
+      // color: $color-primary;
+    }
+}
+
+p, button{
+  font-size: 12px;
+}
+
+.wrapper{
+  padding-top: 60px;
+  background-color: #f8f8f8;
+  @media only screen and (max-width: 600px) {
+    padding-top: 70px;
+  }
+}
+
+.icn-1{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+.container{
+  margin-left: 10%;
+  margin-right: 10%;
+
+  @media(max-width: 768px){
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+
+  @media(max-width: 552px){
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+.mobile-only {
+  display: none;
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
+}
+.web-only {
+  display: block;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+/*
+=========================
+TYPOGRAPHY
+=========================
+*/
+
+html {
+  // font-size: 62.5%; 
+  /* Depends on browser. This value is usually equal to 10px */
+  font-size: 12px;
+  @media (max-width: 900px) {
+    font-size: 13px;
+  }
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
+  @media (max-width: 400px) {
+   font-size: 11px;
+  }
+  
+}
+  
+  body {
+  font-size: 14px;
+  font-size: 1.4rem;
+  }
+  
+  h1 {
+  font-size: 24px;
+  font-size: 2.4rem;
+    &.big {
+      font-size: 3.5rem;
+    }
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+  }
+  h4 {
+    font-size: 16px;
+    font-size: 1.6rem;
+  }
+  p  { 
+    font-size: 14px;
+    font-size: 1.4rem; 
+  }
+  p.small {
+    font-size: 13px;
+    font-size: 1.3rem; 
+  }
+  
+  li  { 
+    font-size: 14px;
+    font-size: 1.4rem; 
+  }
+
+/*
+=========================
+BUTTONS
+=========================
+*/
+
+.btn-type-1{
+  transition: .5s all;
+  width: fit-content;
+  height: 45px;
+  font-size: 14px;
+  border: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+  outline: 0;
+  padding: 0 20px;
+  border-radius: 2px;
+  border: 1px solid $color-brand;
+  font-weight: 400;
+  background:$color-brand;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+}
+.btn-type-2{
+  transition: .5s all;
+  width: fit-content;
+  height: 45px;
+  font-size: 14px;
+  border: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+  outline: 0;
+  padding: 0 20px;
+  border-radius: 2px;
+  border: 1px solid $color-brand;
+  font-weight: 400;
+  background: transparent;
+  color: $color-brand;
+  cursor: pointer;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+}
+.btn-type-3{
+  transition: .5s all;
+  width: fit-content;
+  height: 45px;
+  font-size: 14px;
+  border: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+  outline: 0;
+  padding: 0 20px;
+  border-radius: 2px;
+  border: 1px solid #fff;
+  font-weight: 400;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid $color-brand;
+    background: $color-brand;
+    color: #fff;
+  }
+}
+
+.btn-type-4{
+  transition: .5s all;
+  width: fit-content;
+  height: 45px;
+  font-size: 14px;
+  border: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+  outline: 0;
+  padding: 0 20px;
+  border-radius: 2px;
+  border: 1px solid #efefef;
+  font-weight: 400;
+  background: transparent;
+  color: #efefef;
+  cursor: pointer;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.btn-label {
+  color: #fff;
+  font-size: 13px;
+  &:hover {
+    color: $color-brand;
+    cursor: pointer;
+  }
+}
+
+/*
+=========================
+INPUTS
+=========================
+*/
+
+.label-type-1{
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.input-type-1{
+  height: 45px;
+  border: 1px solid $color-grey-lighter;
+  width: 100%;
+  padding: 5px;
+  padding-left: 10px;
+  border-radius: 4px;
+}
+.input-type-2 {
+  border: 1px solid #fff;
+  padding: 20px;
+  border-radius: 3px;
+  background: transparent;
+  color: #efefef;
+  font-size: 15px;
+}
+.input-phone {
+  display: flex;
+  padding: 20px;
+  border-radius: 3px;
+  background: transparent;
+  width: fit-content;
+  margin-bottom: 25px;
+  border: 1px solid #efefef;
+  span {
+    color: #efefef;
+    font-size: 22px;
+    margin-right: 15px;
+    
+  }
+  input {
+    font-size: 22px;
+    color: #efefef;
+    background: transparent;
+    border: 0;
+    &:focus{
+      outline: none;
+    }
+    &[type=number]::-webkit-inner-spin-button, 
+    &[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0; 
+    }
+  }
+}
+
+.input-otp {
+  display: flex;
+  background: transparent;
+  margin-bottom: 25px;
+  input {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #efefef;
+    text-align: center;
+    font-size: 2.5rem;
+    background: transparent;
+    margin-right: 15px;
+    color: #fff;
+    &[type=number]::-webkit-inner-spin-button, 
+    &[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0; 
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+/*
+=========================
+CARDS
+=========================
+*/
+.card {
+  background-color: #fff;
+}
+.card-box {
+  box-shadow: rgba(71, 62, 103, 0.05) 0px 2px 5px 0px;
+  background-color: #fff;
+  &-border {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(18, 19, 19, 0.1);
+    border-radius: 3px;
+  }
+  .header {
+    padding: 20px 20px;
+    border-bottom: 1px solid #ebebeb;
+    h5 {
+      margin: 0;
+      color: #555;
+    }
+  }
+  .content {}
+  .footer {}
+}
+/*
+=========================
+PLACEHOLDER
+=========================
+*/
+.placeholder-text {
+  margin: 10px;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.placeholder-text-0m {
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.placeholder-text-center {
+  margin: auto;
+  margin-top: 10px;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+.pt-h1 {
+  height: 40px;
+}
+
+.pt-h3 {
+  height: 24px;
+}
+
+.pt-10H {
+  height: 10px;
+}
+.pt-15H {
+  height: 15px;
+}
+.pt-20H {
+  height: 20px;
+}
+.pt-25H {
+  height: 25px;
+}
+.pt-40H {
+  height: 40px;
+}
+.pt-100H {
+  height: 100px;
+}
+.pt-250H {
+  height: 250px;
+}
+.pt-25H {
+  width: 25px;
+}
+.pt-100W {
+  width: 100px;
+}
+.pt-150W {
+  width: 150px;
+}
+
+.pt-200W {
+  width: 200px;
+}
+
+.pt-250W {
+  width: 250px;
+}
+
+.pt-10pW {
+  width: 10%;
+}
+.pt-30pW {
+  width: 30%;
+}
+.pt-50pW {
+  width: 50%;
+}
+
+.pt-70pW {
+  width: 70%;
+}
+.pt-100pW {
+  width: 100%;
+}
+@keyframes pulse {
+    0% {
+        background-color: rgba(165, 165, 165, 0.1)
+    }
+    50% {
+        background-color: rgba(165, 165, 165, 0.3)
+    }
+    100% {
+        background-color: rgba(165, 165, 165, 0.1)
+    }
+}
