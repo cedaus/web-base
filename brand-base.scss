@@ -20,6 +20,14 @@ h4 {margin: 0;}
 .active{
   display: block!important;
 }
+.sticky {
+  position: sticky;
+  top: 60px;
+  z-index: 2;
+  @media only screen and (max-width: 600px) {
+    top: 70px;
+  }
+}
 
 a{
     text-decoration: none;
@@ -267,6 +275,15 @@ INPUTS
   margin-bottom: 10px;
 }
 
+.input-type-1, .input-type-2 {
+  &.shadow {
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.13);
+  }
+  &:focus {
+    outline:none;
+  }
+}
+
 .input-type-1{
   height: 45px;
   border: 1px solid $color-grey-lighter;
@@ -277,10 +294,10 @@ INPUTS
 }
 .input-type-2 {
   border: 1px solid #fff;
-  padding: 20px;
+  padding: 15px;
   border-radius: 3px;
   background: transparent;
-  color: #efefef;
+  color: #333;
   font-size: 15px;
 }
 .input-phone {
