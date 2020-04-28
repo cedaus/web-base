@@ -166,7 +166,7 @@ BUTTONS
 =========================
 */
 
-.btn-type-1, .btn-type-2, .btn-type-3, .btn-type-4, .btn-type-5, .btn-type-6{
+.btn-type-1, .btn-type-2, .btn-type-3, .btn-type-4, .btn-type-5, .btn-type-6, .btn-type-7{
   transition: .5s all;
   width: fit-content;
   font-size: 14px;
@@ -196,7 +196,7 @@ BUTTONS
   border: 1px solid $color-brand;
   background:$color-brand;
   color: white;
-  opacity: 0.8;
+  opacity: 0.9;
   &:hover {
     opacity: 1;
   }
@@ -206,6 +206,10 @@ BUTTONS
   background: transparent;
   color: $color-brand;
   opacity: 0.8;
+  &.hover-solid {
+    background:$color-brand;
+    color: white;
+  }
   &:hover {
     opacity: 1;
   }
@@ -255,12 +259,37 @@ BUTTONS
   }
 }
 
-.btn-label {
-  color: #fff;
-  font-size: 13px;
+.btn-type-7{
+  border: 1px solid $color-brand;
+  background: transparent;
+  color: $color-brand;
+  opacity: 0.8;
   &:hover {
-    color: $color-brand;
+    background:$color-brand;
+    color: white;
+  }
+}
+
+.btn-label {
+  &-white, &-brand, &-alt {
+    font-size: 14px;
     cursor: pointer;
+    &.bold {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+  &-white {
+    color: #fff;
+    &:hover {
+      color: $color-brand;
+    }
+  }
+  &-brand {
+    color: $color-brand;
+  }
+  &-alt {
+    color: #333;
   }
 }
 
@@ -278,6 +307,9 @@ INPUTS
 .input-type-1, .input-type-2 {
   &.shadow {
     box-shadow: 0 0 15px 0 rgba(0,0,0,.13);
+  }
+  &.border {
+    border: 1px solid #efefef !important;
   }
   &:focus {
     outline:none;
