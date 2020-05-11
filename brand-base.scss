@@ -22,10 +22,10 @@ h4 {margin: 0;}
 }
 .sticky {
   position: sticky;
-  top: 60px;
+  top: $navbar-fixed-height;
   z-index: 2;
   @media only screen and (max-width: 600px) {
-    top: 70px;
+    top: $navbar-fixed-mob-height;
   }
 }
 
@@ -43,10 +43,10 @@ p, button{
 }
 
 .wrapper{
-  padding-top: 60px;
+  padding-top: $navbar-fixed-height;
   background-color: #f8f8f8;
   @media only screen and (max-width: 600px) {
-    padding-top: 70px;
+    padding-top: $navbar-fixed-mob-height;
   }
 }
 
@@ -116,7 +116,10 @@ html {
   font-size: 14px;
   font-size: 1.4rem;
   }
-  
+  h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+  }
+
   h1 {
   font-size: 24px;
   font-size: 2.4rem;
@@ -166,7 +169,8 @@ BUTTONS
 =========================
 */
 
-.btn-type-1, .btn-type-2, .btn-type-3, .btn-type-4, .btn-type-5, .btn-type-6, .btn-type-7{
+.btn-solid-brand, .btn-type-3, .btn-type-4, .btn-type-5, .btn-type-6, .btn-solid-white, .btn-outline-white, .btn-outline-brand{
+  height: fit-content;
   transition: .5s all;
   width: fit-content;
   font-size: 14px;
@@ -177,22 +181,30 @@ BUTTONS
   white-space: nowrap;
   vertical-align: top;
   outline: 0;
-  padding: 15px 20px;
-  border-radius: 2px;
+  padding: 15px;
+  border-radius: 5px;
   font-weight: 400;
   cursor: pointer;
-}
-.btn-type-1.bold, .btn-type-2.bold, .btn-type-3.bold, .btn-type-4.bold, .btn-type-5.bold, .btn-type-6.bold {
-  padding: 20px;
-  font-size: 20px;
-  font-weight: 600;
-  @media screen and (max-width: 600px) {
-    padding: 15px;
-    font-size: 17px;
+  &.bold {
+    font-weight: 700;
+  }
+  &.size-xs {
+    padding: 7px 10px;
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  &.size-l {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    @media screen and (max-width: 600px) {
+      padding: 15px;
+      font-size: 17px;
+    }
   }
 }
 
-.btn-type-1 {
+.btn-solid-brand {
   border: 1px solid $color-brand;
   background:$color-brand;
   color: white;
@@ -201,17 +213,45 @@ BUTTONS
     opacity: 1;
   }
 }
-.btn-type-2{
+.btn-solid-white{
+  border: 1px solid #fff;
+  background: #fff;
+  color: #000;
+  opacity: 1;
+  &:hover {
+    color: $color-brand;
+  }
+}
+.btn-outline-white{
+  border: 1px solid #efefef;
+  background: transparent;
+  color: #efefef;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+  &.hover-solid {
+    &:hover {
+      opacity: 1;
+      background: #fff;
+      color: $color-brand;
+    }
+  }
+}
+.btn-outline-brand{
   border: 1px solid $color-brand;
   background: transparent;
   color: $color-brand;
   opacity: 0.8;
-  &.hover-solid {
-    background:$color-brand;
-    color: white;
-  }
   &:hover {
     opacity: 1;
+  }
+  &.hover-solid {
+    &:hover {
+      opacity: 1;
+      background:$color-brand;
+      color: white;
+    }
   }
 }
 .btn-type-3{
@@ -259,16 +299,7 @@ BUTTONS
   }
 }
 
-.btn-type-7{
-  border: 1px solid $color-brand;
-  background: transparent;
-  color: $color-brand;
-  opacity: 0.8;
-  &:hover {
-    background:$color-brand;
-    color: white;
-  }
-}
+
 
 .btn-label {
   &-white, &-brand, &-alt {
@@ -298,13 +329,10 @@ BUTTONS
 INPUTS
 =========================
 */
-
-.label-type-1{
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-.input-type-1, .input-type-2 {
+.input, .input-outline-white, .input-solid-white {
+  border-radius: 4px;
+  width: 100%;
+  color: #333;
   &.shadow {
     box-shadow: 0 0 15px 0 rgba(0,0,0,.13);
   }
@@ -314,24 +342,31 @@ INPUTS
   &:focus {
     outline:none;
   }
+  &.size-s {
+    padding: 15px;
+    font-size: 15px;
+  }
+  &.size-m {
+    padding: 18px;
+    font-size: 18px;
+  }
 }
 
-.input-type-1{
-  height: 45px;
-  border: 1px solid $color-grey-lighter;
-  width: 100%;
-  padding: 5px;
-  padding-left: 10px;
-  border-radius: 4px;
-}
-.input-type-2 {
-  border: 1px solid #fff;
-  padding: 15px;
-  border-radius: 3px;
+.input-outline-white {
   background: transparent;
-  color: #333;
-  font-size: 15px;
+  border: 1px solid #efefef;
 }
+
+.input-solid-white {
+  border: 1px solid #efefef;
+  background: #fff;
+}
+
+.label-type-1{
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
 .input-phone {
   display: flex;
   padding: 20px;
@@ -363,7 +398,6 @@ INPUTS
     }
   }
 }
-
 .input-otp {
   display: flex;
   background: transparent;
