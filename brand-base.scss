@@ -153,7 +153,9 @@ html {
     font-size: 13px;
     font-size: 1.3rem; 
   }
-  
+  a {
+    color: #000 !important;
+  }
   li  { 
     font-size: 14px;
     font-size: 1.4rem; 
@@ -169,7 +171,8 @@ BUTTONS
 =========================
 */
 
-.btn-solid-brand, .btn-type-3, .btn-type-4, .btn-type-5, .btn-type-6, .btn-solid-white, .btn-outline-white, .btn-outline-brand{
+.btn-solid-brand, .btn-type-3, .btn-type-4, .btn-type-5, .btn-type-6, .btn-solid-white, .btn-solid-grey, .btn-outline-white, .btn-outline-brand{
+  display: block;
   height: fit-content;
   transition: .5s all;
   width: fit-content;
@@ -191,6 +194,11 @@ BUTTONS
   &.size-xs {
     padding: 7px 10px;
     font-size: 13px;
+    vertical-align: middle;
+  }
+  &.size-s {
+    padding: 12px;
+    font-size: 15px;
     vertical-align: middle;
   }
   &.size-l {
@@ -216,6 +224,15 @@ BUTTONS
 .btn-solid-white{
   border: 1px solid #fff;
   background: #fff;
+  color: #000;
+  opacity: 1;
+  &:hover {
+    color: $color-brand;
+  }
+}
+.btn-solid-grey {
+  border: 1px solid #F2F2F2;
+  background: #F2F2F2;
   color: #000;
   opacity: 1;
   &:hover {
@@ -424,6 +441,161 @@ INPUTS
   }
 }
 
+.input-checkbox {
+  display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 100%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  & input:checked ~ .checkmark {
+    background-color: $color-brand;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  & input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  & .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+/*
+=========================
+LOADER
+=========================
+*/
+
+// <div class="loader"></div>
+.lds-spin {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid $color-brand; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: lds-spin 2s linear infinite;
+}
+
+@keyframes lds-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// <div class="lds-ripple"><div></div><div></div></div>
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  div {
+    position: absolute;
+    border: 4px solid $color-brand;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+// <div class="lds-line"><div class="bar"></div></div>
+.lds-line {
+  height: 5px;
+  width: 100%;
+  overflow: hidden;
+  .bar {
+    position: relative;
+    height: 5px;
+    background-color: $color-brand;
+    animation-name: lds-line;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes lds-line {
+  0% {
+    left: -100%;
+}
+49% {
+    left: 100%;
+}
+50% {
+    left: 100%;
+}
+100% {
+    left: -100%;
+}
+}
+
+
 /*
 =========================
 CARDS
@@ -431,6 +603,11 @@ CARDS
 */
 .card {
   background-color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  &.shadow-1 {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 .card-box {
   box-shadow: rgba(71, 62, 103, 0.05) 0px 2px 5px 0px;
@@ -441,17 +618,196 @@ CARDS
     border-color: rgba(18, 19, 19, 0.1);
     border-radius: 3px;
   }
+  &.type-2 {
+    border-radius: 6px;
+    box-shadow: 0 30px 40px 0 rgba(12,20,39,.1); 
+  }
   .header {
-    padding: 20px 20px;
-    border-bottom: 1px solid #ebebeb;
+    padding: 30px 30px;
+    width: 100%;
+    &.border {
+      border-bottom: 1px solid #ebebeb;
+    }
     h5 {
       margin: 0;
       color: #555;
     }
   }
-  .content {}
+  .body {
+    padding: 0px 30px;
+  }
   .footer {}
 }
+/*
+=========================
+MODAL
+=========================
+*/
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  // background: #9999;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  .modal-centering-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal__container {
+    border: 1px solid #9999;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+    background: #141229;
+    position: relative;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    &.pop {
+      min-height: 600px;
+      @media (max-width: 481px) {
+        min-width: 400px;
+      }
+    }
+    &.full {
+      width: 100%;
+      min-height: 100vh;
+      height: fit-content;
+    }
+  }
+
+  .modal-head{
+    font-size: 14px;
+    font-weight: bold;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 20px 0px 0px 0px;
+    color: #333;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    .close_wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+      background: #fff;
+      height: 40px;
+      width: 40px;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0.6;
+      .closeBtn{
+        font-size: 35px;
+        color: #333;
+      }
+    }
+  }
+  .modal-body {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0px 20px 0px;
+  }
+  .modal-footer{
+    padding: 10px 5px 10px 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e6e6e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &.hide {
+      display: none;
+    }
+  }
+}
+
+
+/*
+=========================
+SLIDE MODAL
+=========================
+*/
+.slide-modal {
+  position: fixed;
+  top: 0px;
+  width: 50%;
+  height: 100%;
+  bottom: 0px;
+  max-width: none;
+  border-radius: 0px;
+  overflow-y: auto;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  .content {
+    height: auto;
+    height: calc(100vh - 69px);
+    overflow-y: scroll;
+  }
+  .footer {
+    height: 69px;
+    box-shadow: 0 -2px 6px 0 rgba(213, 212, 212, 0.5);
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+  }
+
+}
+
+.slide-modal-close-btn {
+  height: 42px;
+  width: 42px;
+  background: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 1);
+  padding-top: 4px;
+  font-size: 18px;
+  position: absolute;
+  right: -60px;
+  top: 0px;
+  border-radius: 100%;
+  text-align: center;
+  opacity: 0.8;
+  z-index: 2000;
+  border: none;
+}
+
+.slide-modal .modal-name {
+  color: #0e1111;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.slide-modal .modal-heading {
+  color: #A9A9A9;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
 /*
 =========================
 PLACEHOLDER
