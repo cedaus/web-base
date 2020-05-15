@@ -171,7 +171,7 @@ BUTTONS
 =========================
 */
 
-.btn-solid-brand, .btn-type-3, .btn-type-4, .btn-type-5, .btn-type-6, .btn-solid-white, .btn-solid-grey, .btn-outline-white, .btn-outline-brand{
+.btn-solid-brand, .btn-solid-white, .btn-solid-grey, .btn-outline-white, .btn-outline-brand {
   display: block;
   height: fit-content;
   transition: .5s all;
@@ -271,51 +271,6 @@ BUTTONS
     }
   }
 }
-.btn-type-3{
-  border: 1px solid #fff;
-  background: #fff;
-  color: #000;
-  opacity: 1;
-  &:hover {
-    border: 1px solid $color-brand;
-    background: $color-brand;
-    color: #fff;
-  }
-}
-
-.btn-type-4{
-  border: 1px solid #efefef;
-  background: #fff;
-  color: #000;
-  opacity: 0.7;
-  &:hover {
-    opacity: 1;
-    background: #fff;
-  }
-}
-
-.btn-type-5{
-  border: 1px solid #efefef;
-  background: transparent;
-  color: #efefef;
-  opacity: 0.9;
-  &:hover {
-    opacity: 1;
-    background: #fff;
-    color: $color-brand;
-  }
-}
-
-.btn-type-6{
-  border: 1px solid #efefef;
-  background: transparent;
-  color: #efefef;
-  opacity: 0.3;
-  &:hover {
-    opacity: 1;
-  }
-}
-
 
 
 .btn-label {
